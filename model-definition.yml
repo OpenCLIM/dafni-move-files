@@ -1,0 +1,25 @@
+kind: Model
+api_version: v1beta1
+metadata:
+  display_name: Move Files
+  name: move-files
+  publisher: Newcastle University
+  summary: Utility to enable moving data between steps
+  source_code: https://github.com/OpenCLIM/dafni-move-files
+  description: Utility to enable moving data between steps
+spec:
+  inputs:
+    parameters:
+      - name: FILE_PATHS
+        title: File paths
+        type: string
+        description: The paths to files that will be moved, relative to /data/inputs and comma separated
+        default: file.txt
+        required: true
+
+      - name: FOLDER_NAME
+        title: Folder name
+        type: string
+        description: The destination folder path, this should be the same as the target dataslot
+        default: dataslot
+        required: true
