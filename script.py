@@ -2,8 +2,11 @@ import os
 import shutil
 
 data_path = os.getenv('DATA_PATH', '/data')
+outputs_path = os.path.join(data_path, 'outputs')
+if not os.path.exists(outputs_path):
+    os.mkdir(outputs_path)
 paths = os.getenv('FILE_PATHS', ['file.txt'])
-folder = os.path.join(data_path, 'outputs', os.getenv('FOLDER_NAME', 'folder'))
+folder = os.path.join(outputs_path, os.getenv('FOLDER_NAME', 'folder'))
 
 if not os.path.exists(folder):
     os.mkdir(folder)
