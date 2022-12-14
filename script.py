@@ -1,5 +1,6 @@
 import os
 import shutil
+import glob
 
 data_path = os.getenv('DATA_PATH', '/data')
 outputs_path = os.path.join(data_path, 'outputs')
