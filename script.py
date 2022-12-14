@@ -12,5 +12,6 @@ if not os.path.exists(folder):
     os.mkdir(folder)
 
 for path in paths.split(','):
-    dest = os.path.join(folder, os.path.basename(path))
-    shutil.move(os.path.join(data_path, 'inputs', path), dest)
+    files = glob.glob(data_path + '/**/' + path, recursive = True)
+    dest = os.path.join(folder, os.path.basename(files[0]))
+    shutil.move(os.path.join(data_path, 'inputs',files[0]), dest)
