@@ -1,6 +1,7 @@
 import os
 import shutil
 import glob
+from glob import glob
 
 import random
 import string
@@ -39,8 +40,10 @@ if not os.path.exists(folder):
     os.mkdir(folder)
 
 for path in paths.split(','):
-    files = glob.glob(data_path + '/**/' + path, recursive = True)
-    print(files)
+    files = glob(data_path + 'inputs' + '/**/' + path, recursive = True)
+    print('Data path is:', data_path)
+    print('Searched for data: ', path)
+    print('Files:', files)
     logger.info(files)
     dest = os.path.join(folder, os.path.basename(files[0]))
     shutil.move(os.path.join(data_path, 'inputs',files[0]), dest)
