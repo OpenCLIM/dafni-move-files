@@ -30,14 +30,17 @@ logger.info('--------')
 
 logger.info('Paths have been setup')  
 
-print(paths)
 logger.info(paths)
-print(folder)
 logger.info(folder)
 
 
 if not os.path.exists(folder):
     os.mkdir(folder)
+    
+def find_extents_file(name, path):
+    for root, _dirs, files in walk(path):
+        if name in files:
+            return join(root, name)
     
 i=0
 
