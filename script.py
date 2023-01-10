@@ -6,7 +6,7 @@ from glob import glob
 import random
 import string
 import logging
-#from pathlib import Path
+from pathlib import Path
 from os import listdir, getenv, mkdir, remove, walk
 from os.path import isfile, join, isdir
 
