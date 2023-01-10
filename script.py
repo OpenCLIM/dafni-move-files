@@ -38,12 +38,23 @@ logger.info(folder)
 
 if not os.path.exists(folder):
     os.mkdir(folder)
+    
+i=0
 
 for path in paths.split(','):
-    files = glob(data_path + 'inputs' + '/**/' + path, recursive = True)
-    print('Data path is:', data_path)
-    print('Searched for data: ', path)
-    print('Files:', files)
-    logger.info(files)
-    dest = os.path.join(folder, os.path.basename(files[0]))
-    shutil.move(os.path.join(data_path, 'inputs',files[0]), dest)
+    file = [find_extents_file(path,data_path)]
+    logger.info('file')  
+    source = file[i]
+    logger.info('Source')  
+    destination = os.path.join(folder, path)
+    logger.info('destination')  
+    shutil.move(source, destination)
+
+# for path in paths.split(','):
+#     files = glob(data_path + 'inputs' + '/**/' + path, recursive = True)
+#     print('Data path is:', data_path)
+#     print('Searched for data: ', path)
+#     print('Files:', files)
+#     logger.info(files)
+#     dest = os.path.join(folder, os.path.basename(files[0]))
+#     shutil.move(os.path.join(data_path, 'inputs',files[0]), dest)
